@@ -6,7 +6,7 @@ We are working in a customer project where we need to classify hundreds of milli
 fastText [1] was chosen because it has shown excellent performance in text classification [2] and in language detection [3]. However, it is not trivial to run fastText in pySpark, thus, we wrote this guide.
 
 ## Requirements
-To run the provided example, you need to have Apache Spark running either locally, e.g. on your laptop, or in cloud e.g. in AWS EMR. You can install spark with pySpark simply by writing
+To run the provided example, you need to have Apache Spark running either locally, e.g. on your laptop, or in cloud e.g. in AWS EMR. You can install Apache Spark with pySpark simply by writing
 
 ```
 pip3 install pyspark
@@ -23,10 +23,14 @@ pip3 install fasttext
 
 ## Data
 
-Before we can run a language classifier in Spark, we must train a classifier model. To train a model, we need to have known samples for each language we are interested. In this experiment, we used **X** dataset from **Y**. So, you need to download **XY** and store it in `data/` and decompress the file e.g. with command
+Before we can run a language classifier in Spark, we must train a classifier model. To train a model, we need to have known samples for each language we are interested. In this experiment, we used a sentences dataset from [Tatoeba](https://tatoeba.org/eng/downloads). So, you need to download [sentences.tar.bz2](http://downloads.tatoeba.org/exports/sentences.tar.bz2) and store it in `data/` and decompress the file e.g. with command
 
 ```
-tar -xvzf <file>
+mkdir -p data
+cd data/
+wget http://downloads.tatoeba.org/exports/sentences.tar.bz2
+bunzip2 sentences.tar.bz2
+tar xvf sentences.tar
 ```
 
 ## Training a fastText classifier
