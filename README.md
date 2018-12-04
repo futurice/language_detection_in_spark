@@ -25,12 +25,12 @@ pip3 install fasttext
 
 Before we can run a language classifier in Spark, we must train a classifier model. To train a model, we need to have known samples for each language we are interested. In this experiment, we used a sentences dataset from [Tatoeba](https://tatoeba.org/eng/downloads). So, you need to download [sentences.tar.bz2](http://downloads.tatoeba.org/exports/sentences.tar.bz2) and store it in `data/` and decompress the file e.g. with command
 
-```
-mkdir -p data
-cd data/
-wget http://downloads.tatoeba.org/exports/sentences.tar.bz2
-bunzip2 sentences.tar.bz2
-tar xvf sentences.tar
+```bash
+>> mkdir -p data
+>> cd data/
+>> wget http://downloads.tatoeba.org/exports/sentences.tar.bz2
+>> bunzip2 sentences.tar.bz2
+>> tar xvf sentences.tar
 ```
 
 ## Training a fastText classifier
